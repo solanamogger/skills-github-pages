@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NINJA MOUSE - MEME ASSASSIN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Rubik+Glitch&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --neon-red: #ff073a;
+      --toxic-green: #39ff14;
+      --cyber-purple: #bc13fe;
+    }
+
+    body {
+      font-family: 'Rubik Glitch', cursive;
+      background: #000;
+      color: var(--toxic-green);
+      text-align: center;
+      margin: 0;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .matrix-rain {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    .header {
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 3px solid var(--neon-red);
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-family: 'Bungee Shade', cursive;
+      font-size: 3.5rem;
+      text-shadow: 0 0 20px var(--toxic-green);
+      margin: 2rem 0;
+      background: linear-gradient(45deg, var(--toxic-green), var(--cyber-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .ninja-container {
+      position: relative;
+      margin: 2rem auto;
+    }
+
+    .ninja-mouse {
+      font-size: 10rem;
+      filter: drop-shadow(0 0 25px var(--cyber-purple));
+      animation: floatAttack 2s ease-in-out infinite;
+      cursor: crosshair;
+    }
+
+    @keyframes floatAttack {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-30px) rotate(-10deg); }
+      75% { transform: translateY(20px) rotate(10deg); }
+    }
+
+    .solana-address {
+      background: #000;
+      border: 2px solid var(--toxic-green);
+      padding: 1rem 2rem;
+      margin: 2rem auto;
+      width: fit-content;
+      font-family: monospace;
+      letter-spacing: 2px;
+      position: relative;
+      cursor: copy;
+      transition: all 0.3s;
+    }
+
+    .solana-address:hover {
+      background: var(--toxic-green);
+      color: #000;
+      transform: skew(-10deg);
+    }
+
+    .progress-container {
+      background: rgba(0, 0, 0, 0.9);
+      border: 3px solid var(--neon-red);
+      border-radius: 15px;
+      width: 80%;
+      margin: 2rem auto;
+      padding: 1rem;
+      box-shadow: 0 0 30px var(--neon-red);
+    }
+
+    .progress-bar {
+      background: linear-gradient(90deg, #ff073a, #ff00ff);
+      height: 30px;
+      border-radius: 15px;
+      transition: width 1s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2));
+      animation: scan 2s infinite linear;
+    }
+
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .buttons-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    button {
+      background: #000;
+      border: 3px solid var(--toxic-green);
+      color: var(--toxic-green);
+      padding: 1.5rem;
+      font-family: 'Rubik Glitch', cursive;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover {
+      background: var(--toxic-green);
+      color: #000;
+      transform: scale(1.1);
+      text-shadow: 0 0 10px #000;
+    }
+
+    .phase-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      padding: 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .phase-card {
+      background: rgba(0, 0, 0, 0.9);
+      border: 3px solid var(--neon-red);
+      padding: 2rem;
+      border-radius: 15px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phase-card::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255,7,58,0.2));
+      z-index: -1;
+    }
+
+    .phase-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px var(--neon-red);
+    }
+
+    .social-links {
+      padding: 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      color: var(--cyber-purple);
+      text-decoration: none;
+      font-size: 2rem;
+      transition: all 0.3s;
+      padding: 1rem;
+      border: 2px solid var(--cyber-purple);
+      border-radius: 10px;
+    }
+
+    .social-links a:hover {
+      color: var(--toxic-green);
+      border-color: var(--toxic-green);
+      transform: rotate(360deg);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .ninja-mouse { font-size: 6rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>₦ł₦J₳ ₥ØɄ₴Ɇ ₥Ɇ₥Ɇ₴</h1>
+    <div class="ninja-container">
+      <div class="ninja-mouse">🐭🗡️</div>
+    </div>
+    <p>Stealth Launch Protocol: Activated</p>
+  </div>
+
+  <div class="solana-address" onclick="copyAddress()">
+    SOLANA ADDRESS: FSrpcHhG6LZywyzJm7ERS6TCyKUX7iAwBEyK3QQA3whc
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-bar" style="width: 5%"></div>
+    <p style="margin-top: 1rem;">INITIALIZING MOONSHOT: 5/150 SOL</p>
+  </div>
+
+  <div class="buttons-container">
+    <button data-amount="0.1">STEALTH 0.1 SOL</button>
+    <button data-amount="1">NINJA 1 SOL</button>
+    <button data-amount="3">ASSASSIN 3 SOL</button>
+  </div>
+
+  <div class="phase-container">
+    <div class="phase-card">
+      <h3>SHADOW DEPLOYMENT</h3>
+      <p>Silent liquidity infiltration</p>
+    </div>
+    <div class="phase-card">
+      <h3>CHAIN DOMINATION</h3>
+      <p>Market cap annihilation protocol</p>
+    </div>
+    <div class="phase-card">
+      <h3>MOON OCCUPATION</h3>
+      <p>Orbital exchange takeover</p>
+    </div>
+  </div>
+
+  <div class="social-links">
+    <a href="#" target="_blank">𝕏-CHAIN</a>
+    <a href="#" target="_blank">TELEGRΔM</a>
+    <a href="#" target="_blank">DEXWΔR</a>
+  </div>
+
+  <script>
+    function copyAddress() {
+      const address = 'FSrpcHhG6LZywyzJm7ERS6TCyKUX7iAwBEyK3QQA3whc';
+      navigator.clipboard.writeText(address);
+      alert('Ninja address copied! Prepare for liftoff! 🚀');
+    }
+
+    // Matrix rain effect
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.zIndex = '-1';
+    document.body.prepend(canvas);
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*';
+    const drops = Array(Math.floor(canvas.width/20)).fill(0);
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#0F0';
+      ctx.font = '20px monospace';
+
+      drops.forEach((drop, i) => {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * 20, drop * 20);
+        if (drop * 20 > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      });
+    }
+    setInterval(drawMatrix, 50);
+
+    // Button interactions
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const amount = parseFloat(this.dataset.amount);
+        const progressBar = document.querySelector('.progress-bar');
+        const currentWidth = parseFloat(progressBar.style.width) || 5;
+        const newWidth = currentWidth + (amount / 150 * 100);
+        progressBar.style.width = Math.min(newWidth, 100) + '%';
+        
+        this.style.animation = 'ninjaStab 0.3s';
+        setTimeout(() => this.style.animation = '', 300);
+      });
+    });
+  </script>
+</body>
+</html>
